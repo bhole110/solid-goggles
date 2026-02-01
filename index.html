@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Join VIP Telegram</title>
+
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;n=f.fbq=function(){
+n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f.fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1593964685089879');
+fbq('track', 'PageView');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1593964685089879&ev=PageView&noscript=1"/>
+</noscript>
+
+<style>
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  background:#05080f;
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+  overflow:hidden;
+}
+
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:0;
+}
+
+.wrapper{
+  position:relative;
+  z-index:2;
+  min-height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.card{
+  width:100%;
+  max-width:420px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(18px);
+  border-radius:26px;
+  padding:26px 22px 30px;
+  text-align:center;
+  box-shadow:
+    0 0 60px rgba(0,255,255,0.12),
+    inset 0 0 30px rgba(255,255,255,0.05);
+}
+
+.logo img{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  box-shadow:0 0 30px rgba(0,255,255,0.4);
+  margin-bottom:12px;
+}
+
+h1{
+  margin:10px 0 6px;
+  font-size:28px;
+  font-weight:800;
+  letter-spacing:.5px;
+  color:#ffe066;
+  text-shadow:0 0 20px rgba(255,200,0,0.4);
+}
+
+.subtitle{
+  font-size:15px;
+  color:#ddd;
+  line-height:1.4;
+}
+
+.highlight{
+  margin-top:10px;
+  font-size:14px;
+  color:#9ff;
+}
+
+.cta{
+  margin-top:22px;
+}
+
+.btn{
+  width:100%;
+  padding:16px;
+  border-radius:50px;
+  font-size:15px;
+  font-weight:800;
+  border:none;
+  cursor:pointer;
+  background:linear-gradient(90deg,#ffcc00,#ff7a00);
+  color:#000;
+  box-shadow:
+    0 0 25px rgba(255,150,0,0.6),
+    0 0 60px rgba(255,100,0,0.3);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+
+.btn:active{
+  transform:scale(.97);
+  box-shadow:0 0 18px rgba(255,140,0,0.6);
+}
+
+.timer{
+  margin-top:12px;
+  font-size:14px;
+  font-weight:600;
+  color:#ff5c5c;
+}
+
+.footer{
+  margin-top:22px;
+  font-size:11px;
+  color:rgba(255,255,255,.45);
+}
+</style>
+</head>
+
+<body>
+<canvas id="bg"></canvas>
+
+<div class="wrapper">
+  <div class="card">
+    <div class="logo">
+      <img src="https://i.ibb.co/FqDcw5rJ/photo-2026-02-01-13-12-27.jpg">
+    </div>
+
+    <h1>JERRY BHAI</h1>
+    <div class="subtitle">
+      Official VIP Telegram Channel<br>
+      Daily Number Insights 🔥
+    </div>
+
+    <div class="highlight">
+      Trusted by Thousands • Limited Access
+    </div>
+
+    <div class="cta">
+      <button id="joinBtn" class="btn">🚀 Join Telegram Now</button>
+    </div>
+
+    <div class="timer">
+      ⏳ Offer expires in <span id="countdown">15</span>s
+    </div>
+
+    <div class="footer">
+      © 2025 @bholenotop ADS TG
+    </div>
+  </div>
+</div>
+
+<script>
+/* LINK */
+const TELEGRAM_LINK="https://t.me/+1G_THhw8if0xZTc1";
+
+/* HUMAN CLICK GATE */
+let clicked=false;
+document.getElementById('joinBtn').addEventListener('click',()=>{
+  if(clicked) return;
+  clicked=true;
+
+  fbq('trackCustom','TelegramJoinClick');
+
+  setTimeout(()=>{
+    window.location.href=TELEGRAM_LINK;
+  },700);
+});
+
+/* VISUAL COUNTDOWN */
+let t=15;
+const cd=document.getElementById('countdown');
+setInterval(()=>{
+  if(t>0){t--;cd.textContent=t;}
+},1000);
+
+/* BACKGROUND */
+const c=document.getElementById('bg'),x=c.getContext('2d');
+let W=c.width=innerWidth,H=c.height=innerHeight;
+addEventListener('resize',()=>{W=c.width=innerWidth;H=c.height=innerHeight;});
+
+const p=[...Array(90)].map(()=>({
+  x:Math.random()*W,y:Math.random()*H,
+  r:Math.random()*2,
+  vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3
+}));
+
+(function draw(){
+  x.fillStyle='rgba(5,8,15,.35)';
+  x.fillRect(0,0,W,H);
+  p.forEach(o=>{
+    o.x+=o.vx;o.y+=o.vy;
+    if(o.x<0)o.x=W;if(o.x>W)o.x=0;
+    if(o.y<0)o.y=H;if(o.y>H)o.y=0;
+    x.beginPath();
+    x.arc(o.x,o.y,o.r,0,Math.PI*2);
+    x.fillStyle='rgba(0,255,255,.45)';
+    x.fill();
+  });
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
