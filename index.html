@@ -36,13 +36,7 @@ html,body{
   color:#fff;
   overflow:hidden;
 }
-
-canvas{
-  position:fixed;
-  inset:0;
-  z-index:0;
-}
-
+canvas{position:fixed;inset:0;z-index:0}
 .wrapper{
   position:relative;
   z-index:2;
@@ -52,7 +46,6 @@ canvas{
   justify-content:center;
   padding:20px;
 }
-
 .card{
   width:100%;
   max-width:420px;
@@ -61,47 +54,26 @@ canvas{
   border-radius:26px;
   padding:26px 22px 30px;
   text-align:center;
-  box-shadow:
-    0 0 60px rgba(0,255,255,0.12),
-    inset 0 0 30px rgba(255,255,255,0.05);
+  box-shadow:0 0 60px rgba(0,255,255,0.12);
 }
-
 .logo img{
-  width:110px;
-  height:110px;
-  border-radius:50%;
+  width:110px;height:110px;border-radius:50%;
   box-shadow:0 0 30px rgba(0,255,255,0.4);
-  margin-bottom:12px;
 }
-
 h1{
   margin:10px 0 6px;
   font-size:28px;
   font-weight:800;
-  letter-spacing:.5px;
   color:#ffe066;
-  text-shadow:0 0 20px rgba(255,200,0,0.4);
 }
-
 .subtitle{
   font-size:15px;
   color:#ddd;
-  line-height:1.4;
 }
-
-.highlight{
-  margin-top:10px;
-  font-size:14px;
-  color:#9ff;
-}
-
-.cta{
-  margin-top:22px;
-}
-
 .btn{
   width:100%;
   padding:16px;
+  margin-top:22px;
   border-radius:50px;
   font-size:15px;
   font-weight:800;
@@ -109,24 +81,15 @@ h1{
   cursor:pointer;
   background:linear-gradient(90deg,#ffcc00,#ff7a00);
   color:#000;
-  box-shadow:
-    0 0 25px rgba(255,150,0,0.6),
-    0 0 60px rgba(255,100,0,0.3);
-  transition:transform .15s ease, box-shadow .15s ease;
+  box-shadow:0 0 25px rgba(255,150,0,0.6);
 }
-
-.btn:active{
-  transform:scale(.97);
-  box-shadow:0 0 18px rgba(255,140,0,0.6);
-}
-
+.btn:active{transform:scale(.97)}
 .timer{
   margin-top:12px;
   font-size:14px;
   font-weight:600;
   color:#ff5c5c;
 }
-
 .footer{
   margin-top:22px;
   font-size:11px;
@@ -141,7 +104,7 @@ h1{
 <div class="wrapper">
   <div class="card">
     <div class="logo">
-      <img src="https://i.ibb.co/FqDcw5rJ/photo-2026-02-01-13-12-27.jpg">
+      <img src="https://i.ibb.co/jZR42XwK/IMG-20251218-042716-636.jpg">
     </div>
 
     <h1>JERRY BHAI</h1>
@@ -150,59 +113,55 @@ h1{
       Daily Number Insights 🔥
     </div>
 
-    <div class="highlight">
-      Trusted by Thousands • Limited Access
-    </div>
-
-    <div class="cta">
-      <button id="joinBtn" class="btn">🚀 Join Telegram Now</button>
-    </div>
+    <button id="joinBtn" class="btn">
+      🚀 JOIN TELEGRAM NOW
+    </button>
 
     <div class="timer">
       ⏳ Offer expires in <span id="countdown">15</span>s
     </div>
 
-    <div class="footer">
-      © 2025 @bholenotop ADS TG
-    </div>
+    <div class="footer">© 2025 @bholenotop ADS TG</div>
   </div>
 </div>
 
 <script>
-/* LINK */
-const TELEGRAM_LINK="https://t.me/+1G_THhw8if0xZTc1";
+/* TELEGRAM LINK */
+const TELEGRAM_LINK = "https://t.me/+LrB2zyntdx9hNmFl";
 
-/* HUMAN CLICK GATE */
-let clicked=false;
-document.getElementById('joinBtn').addEventListener('click',()=>{
-  if(clicked) return;
-  clicked=true;
+/* UNLIMITED CLICKS – ENGAGEMENT FRIENDLY */
+document.getElementById('joinBtn').addEventListener('click', () => {
 
-  fbq('trackCustom','TelegramJoinClick');
+  // Track every click
+  if (typeof fbq !== "undefined") {
+    fbq('trackCustom','TelegramJoinClick');
+  }
 
+  // small delay (keeps bots lower, humans fine)
   setTimeout(()=>{
-    window.location.href=TELEGRAM_LINK;
-  },700);
+    window.location.href = TELEGRAM_LINK;
+  }, 300);
 });
 
-/* VISUAL COUNTDOWN */
-let t=15;
-const cd=document.getElementById('countdown');
+/* VISUAL TIMER ONLY */
+let t = 15;
+const cd = document.getElementById('countdown');
 setInterval(()=>{
-  if(t>0){t--;cd.textContent=t;}
+  if(t > 0){
+    t--;
+    cd.textContent = t;
+  }
 },1000);
 
 /* BACKGROUND */
 const c=document.getElementById('bg'),x=c.getContext('2d');
 let W=c.width=innerWidth,H=c.height=innerHeight;
 addEventListener('resize',()=>{W=c.width=innerWidth;H=c.height=innerHeight;});
-
-const p=[...Array(90)].map(()=>({
+const p=[...Array(80)].map(()=>({
   x:Math.random()*W,y:Math.random()*H,
   r:Math.random()*2,
   vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3
 }));
-
 (function draw(){
   x.fillStyle='rgba(5,8,15,.35)';
   x.fillRect(0,0,W,H);
@@ -218,5 +177,6 @@ const p=[...Array(90)].map(()=>({
   requestAnimationFrame(draw);
 })();
 </script>
+
 </body>
 </html>
